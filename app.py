@@ -21,4 +21,4 @@ def start(orderId,orderAmount):
         response = rm.post(url = "https://test.cashfree.com/api/v2/cftoken/order",json = data, headers=headers_dict)
         return json.loads(response.text)['cftoken']
 
-app.run()
+
