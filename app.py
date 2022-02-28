@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 
 
-@app.route("/cashfree",merthods = ['POST'])
+@app.route("/cashfree",methods = ['POST'])
 def start():
     orderId = request.get_json['orderId']
     orderAmount = request.get_json['orderAmount']
