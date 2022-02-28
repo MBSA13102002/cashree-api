@@ -10,11 +10,8 @@ app = Flask(__name__)
 
 
 
-@app.route("/cashfree",methods = ['POST'])
-def start():
-    if request.method == "POST":
-        orderId = request.json['orderId']
-        orderAmount = request.json['orderAmount']
+@app.route("/cashfree/<string:orderId>/<string:orderAmount>",methods = ['GET','POST'])
+def start(orderId,orderAmount):
         data ={
             "orderId": orderId,
             "orderAmount":int(orderAmount),
