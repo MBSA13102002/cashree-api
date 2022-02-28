@@ -12,11 +12,13 @@ app = Flask(__name__)
 
 @app.route("/cashfree",methods = ['POST'])
 def start():
-    orderId = request.get_json['orderId']
-    orderAmount = request.get_json['orderAmount']
-    data ={
-        "orderId": orderId,
-        "orderAmount":int(orderAmount),
-        "orderCurrency": "INR"}
-    response = rm.post(url = "https://test.cashfree.com/api/v2/cftoken/order",json = data, headers=headers_dict)
-    return json.loads(response.text)
+    if request.method == "POST":
+        orderId = request.json['orderId']
+        orderAmount = request.json['orderAmount']
+        data ={
+            "orderId": orderId,
+            "orderAmount":int(orderAmount),
+            "orderCurrency": "INR"}
+        response = rm.post(url = "https://test.cashfree.com/api/v2/cftoken/order",json = data, headers=headers_dict)
+        return json.loads(response.text)
+
