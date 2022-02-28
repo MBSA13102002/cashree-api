@@ -17,5 +17,6 @@ def start(orderId,orderAmount):
             "orderAmount":int(orderAmount),
             "orderCurrency": "INR"}
         response = rm.post(url = "https://test.cashfree.com/api/v2/cftoken/order",json = data, headers=headers_dict)
-        return json.loads(response.text)
+        return json.loads(response.text)['cftoken']
 
+app.run()
