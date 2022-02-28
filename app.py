@@ -2,6 +2,7 @@ import requests as rm
 import json
 from flask import Flask,request
 from flask_cors import CORS
+app = Flask(__name__)
 cors = CORS(app)
 headers_dict = {
     "x-client-id": "78975f8bd06ac31b2981a9e1d57987",
